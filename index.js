@@ -10,6 +10,11 @@ app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// Ajout de la route qui retourne "Bonjour"
+app.get('/', (req, res) => {
+    res.send('Bonjour');
+});
+
 // Utilisation des routes de login
 app.use('/api/auth', authRoutes);
 
