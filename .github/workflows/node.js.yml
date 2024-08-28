@@ -35,10 +35,11 @@ jobs:
 
           ssh -o StrictHostKeyChecking=no -i __TEMP_INPUT_KEY_FILE -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_USER }}"@"${{ secrets.SSH_HOST }}" "sudo rm -rf dist"
 
-          scp -o StrictHostKeyChecking=no -v -i __TEMP_INPUT_KEY_FILE -P "${{ secrets.SSH_PORT }}" -r dist "${{ secrets.SSH_USER }}"@"${{ secrets.SSH_HOST }}":"."
+          scp -o StrictHostKeyChecking=no -v -i __TEMP_INPUT_KEY_FILE -P "${{ secrets.SSH_PORT }}" -r dist "${{ secrets.SSH_USER }}"@"${{ secrets.SSH_HOST }}":"/www/sw_api"
+         
+          scp -o StrictHostKeyChecking=no -v -i __TEMP_INPUT_KEY_FILE -P "${{ secrets.SSH_PORT }}" -r package.json "${{ secrets.SSH_USER }}"@"${{ secrets.SSH_HOST }}":"/www/sw_api"
+         
+          ssh -o StrictHostKeyChecking=no -i __TEMP_INPUT_KEY_FILE -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_USER }}"@"${{ secrets.SSH_HOST }}" "cd /var/www/myproject && sudo npm install --prefix dist/ ; sudo forever start dist/index.js"
 
-          scp -o StrictHostKeyChecking=no -v -i __TEMP_INPUT_KEY_FILE -P "${{ secrets.SSH_PORT }}" -r package.json "${{ secrets.SSH_USER }}"@"${{ secrets.SSH_HOST }}":"dist"
-
-          ssh -o StrictHostKeyChecking=no -i __TEMP_INPUT_KEY_FILE -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_USER }}"@"${{ secrets.SSH_HOST }}" "sudo npm install --prefix dist/ ; sudo forever start dist/app.js"
 
           rm __TEMP_INPUT_KEY_FILE
