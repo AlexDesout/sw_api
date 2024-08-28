@@ -23,7 +23,7 @@ app.use('/api/categories', categoriesRoutes);
 app.use('/api/predictions', predictionRoutes);
 
 
-app.listen(8080, () => {
+app.listen(process.env.PORT, () => {
     console.log("Server Started");
 });
 
