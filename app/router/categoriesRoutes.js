@@ -4,7 +4,7 @@ const categoriesController = require("../controller/categoriesController");
 const authenticateToken = require('../middleware/authMiddleware');
 
 // Liste des routes :
-router.get("/", authenticateToken, categoriesController.getCategories); // All categories
+router.get("/api/categories", authenticateToken, categoriesController.getCategories); // All categories
 
 
 module.exports = router;

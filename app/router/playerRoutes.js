@@ -4,7 +4,7 @@ const playerController = require("../controller/playerController");
 const authenticateToken = require('../middleware/authMiddleware');
 
 // Liste des routes 💰a:
-router.get("/ranking", authenticateToken, playerController.getRanking); // Top 10 best players
+router.get("/api/players/ranking", authenticateToken, playerController.getRanking); // Top 10 best players
 
 
 module.exports = router;

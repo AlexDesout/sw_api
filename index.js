@@ -17,16 +17,16 @@ app.get('/', (req, res) => {
 });
 
 // Utilisation des routes de login
-app.use('/api/auth', authRoutes);
+app.use(authRoutes);
 
 // Utilisation des routes player
 app.use(playerRoutes);
 
 // Utilisation des routes catégories
-app.use('/api/categories', categoriesRoutes);
+app.use(categoriesRoutes);
 
 // Utilisation des routes prédictions
-app.use('/api/predictions', predictionRoutes);
+app.use(predictionRoutes);
 
 
 app.listen(process.env.PORT, () => {
