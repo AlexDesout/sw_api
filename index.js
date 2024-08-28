@@ -13,12 +13,7 @@ app.use(express.json());
 
 // Ajout de la route qui retourne "Bonjour"
 app.get('/', (req, res) => {
-    res.send({
-        "DB_name": process.env.DB_NAME,
-        "HOST": process.env.HOST,
-        "DB_USER": process.env.DB_USER,
-        "PASSWORD": process.env.PASSWORD
-    });
+    res.send("SW_API");
 });
 
 // Utilisation des routes de login

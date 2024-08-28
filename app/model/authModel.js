@@ -3,7 +3,7 @@ require('dotenv').config();
 
 // Configuration de la connexion à la base de données
 const pool = mysql.createPool({
-    host: process.env.HOST,
+    host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.PASSWORD,
     database: process.env.DB_NAME
