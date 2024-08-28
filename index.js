@@ -10,9 +10,15 @@ app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+
 // Ajout de la route qui retourne "Bonjour"
 app.get('/', (req, res) => {
-    res.send(process.env.DB_NAME);
+    res.send({
+        "DB_name": process.env.DB_NAME,
+        "HOST": process.env.HOST,
+        "DB_USER": process.env.DB_USER,
+        "PASSWORD": process.env.PASSWORD
+    });
 });
 
 // Utilisation des routes de login
