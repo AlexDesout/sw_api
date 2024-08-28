@@ -13,6 +13,7 @@ app.use(express.json());
 // Ajout de la route qui retourne "Bonjour"
 app.get('/', (req, res) => {
     console.log(process.env.DB_NAME)
+    console.log("test")
     res.send('Bonjour');
 });
 
