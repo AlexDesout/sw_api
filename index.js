@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes);
 
 // Utilisation des routes player
-app.use('/api/players', playerRoutes);
+app.use(playerRoutes);
 
 // Utilisation des routes catégories
 app.use('/api/categories', categoriesRoutes);
